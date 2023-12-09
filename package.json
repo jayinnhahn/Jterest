@@ -1,0 +1,41 @@
+{
+	"name": "jaypins",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "prisma generate && next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@emotion/react": "^11.11.1",
+		"@emotion/styled": "^11.11.0",
+		"@next/font": "^14.0.4",
+		"@prisma/client": "^5.7.0",
+		"babel-plugin-macros": "^3.1.0",
+		"next": "14.0.3",
+		"react": "^18",
+		"react-dom": "^18",
+		"react-icons": "^4.12.0",
+		"react-masonry-css": "^1.0.16",
+		"twin.macro": "^3.4.0",
+		"unsplash-js": "^7.0.18"
+	},
+	"devDependencies": {
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"autoprefixer": "^10.0.1",
+		"eslint": "^8",
+		"eslint-config-next": "14.0.3",
+		"postcss": "^8",
+		"prisma": "^5.7.0",
+		"tailwindcss": "^3.3.6",
+		"ts-node": "^10.9.1",
+		"typescript": "^5"
+	},
+	"prisma": {
+		"seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+	}
+}
