@@ -1,8 +1,9 @@
 import React from 'react';
 import PinCreateCard from '@/components/PinCreateCard';
+
 const page = () => {
 	return (
-		<div className="flex items-center justify-center h-screen">
+		<div className="flex items-center justify-center h-fit">
 			<PinCreateCard />
 		</div>
 	);

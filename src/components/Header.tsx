@@ -1,12 +1,16 @@
+'use client';
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { HiSearch } from 'react-icons/hi';
 
 const Header = () => {
+	const pathname = usePathname();
+
 	return (
-		<div className="flex justify-between gap-3 md:gap-2 items-center p-6 l">
-			<Link href="/">
+		<div className="flex justify-between gap-3 md:gap-2 items-center p-6">
+			<Link href="/landingpage">
 				<Image
 					src="/iconlogo.png"
 					alt="jayterestlogo"
@@ -16,12 +20,20 @@ const Header = () => {
 				/>
 			</Link>
 			<Link href="/">
-				<p className="bg-primaryblue text-white p-3 px-6 rounded-full text-[16px] hidden md:block">
+				<p
+					className={`${
+						pathname === '/' ? 'bg-primaryblue text-white' : ''
+					} p-3 px-6 rounded-full text-[16px] hidden md:block`}
+				>
 					Home
 				</p>
 			</Link>
 			<Link href="/create">
-				<p className="font-semibold p-3 px-6 rounded-full text-[16px]">
+				<p
+					className={`${
+						pathname === '/create' ? 'bg-primaryblue text-white' : ''
+					} p-3 px-6 rounded-full text-[16px] hidden md:block`}
+				>
 					Create
 				</p>
 			</Link>

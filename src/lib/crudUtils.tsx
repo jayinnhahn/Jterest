@@ -16,3 +16,16 @@ export const getPinById = async (id: string): Promise<Pin | null> => {
 		throw error;
 	}
 };
+
+// export const createNewPin = async (newData: string): Promise<Pin | null> => {
+// 	console.log('new fish data: ', newData);
+// 	try {
+// 		const newPin = await prisma.pin.create({
+// 			data: newData,
+// 		});
+// 		return newPin;
+// 	} catch (error) {
+// 		console.log(error);
+// 		throw error;
+// 	}
+// };
