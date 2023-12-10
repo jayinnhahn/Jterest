@@ -1,24 +1,31 @@
-import React from 'react';
-import { getPinById } from '@/lib/crudUtils';
+'use client';
+import React, { useEffect, useState } from 'react';
 import PinViewCard from '@/components/PinViewCard';
 import PinList from '@/components/PinList';
-interface PageProps {
-	dataid: string;
-}
+import { Pin } from '@prisma/client';
+const Page = ({ params }: { params: { id: string } }) => {
+	const [pin, setPin] = useState<Pin | null>(null);
+	const { id } = params;
 
-const Page: React.FC<PageProps> = async ({ dataid }) => {
-	console.log(dataid);
-	const pins = await getPinById(dataid);
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await fetch(`/api/${id}`);
+				const result = await response.json();
+				setPin(result);
+			} catch (error) {
+				console.error('Error fetching pin:', error);
+			}
+		};
 
-	if (!pins) {
-		return <div>Pin not found {dataid}</div>;
-	}
+		fetchData();
+	}, [id]);
 
 	return (
 		<div>
 			<div className="flex flex-col">
 				<div className="h-screen justify-center">
-					<PinViewCard data={pins} />
+					{pin && <PinViewCard data={pin} />}
 				</div>
 				<h1 className="font-bold text-[4rem] text-center py-5">
 					What &lsquo;s More ?

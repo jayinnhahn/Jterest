@@ -12,15 +12,12 @@ const PinEditModal: React.FC<RightModalProps> = ({ isOpen, onClose }) => {
 		const body = document.body;
 
 		if (isOpen) {
-			// Disable scrolling when the modal is open
 			body.style.overflow = 'hidden';
 		} else {
-			// Enable scrolling when the modal is closed
 			body.style.overflow = 'visible';
 		}
 
 		return () => {
-			// Cleanup: Enable scrolling when the component is unmounted
 			body.style.overflow = 'visible';
 		};
 	}, [isOpen]);

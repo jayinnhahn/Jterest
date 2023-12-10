@@ -8,7 +8,7 @@ datasource db {
 }
 
 model Pin {
-  id          String    @id @default(uuid())
+  id          String @unique @id @default(uuid())
   title       String
   description String
   image       String

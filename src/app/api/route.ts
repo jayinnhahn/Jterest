@@ -9,7 +9,6 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
 	try {
 		const json = await request.json();
-
 		const user = await prisma.pin.create({
 			data: json,
 		});

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Pinitems from './PinItems';
 
 const getPins = cache(() =>
-	fetch('http://localhost:3000/api/pins').then((res) => res.json())
+	fetch('http://localhost:3000/api').then((res) => res.json())
 );
 
 interface PinData {
