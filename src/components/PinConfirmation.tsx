@@ -3,13 +3,13 @@ import React from 'react';
 interface PinConfirmationProps {
 	isOpen: boolean;
 	onCancel: () => void;
-	onDelete: (confirmed: boolean) => void;
+	onConfirm: () => void;
 }
 
 const PinConfirmation: React.FC<PinConfirmationProps> = ({
 	isOpen,
 	onCancel,
-	onDelete,
+	onConfirm,
 }) => {
 	return (
 		<div
@@ -29,15 +29,15 @@ const PinConfirmation: React.FC<PinConfirmationProps> = ({
 					<div className="mt-4 flex justify-end space-x-4">
 						<button
 							type="button"
-							className="text-white px-4 py-2 rounded-3xl bg-primaryblue font-bold"
+							className="text-white px-4 py-2 rounded-3xl border-2 border-black bg-primaryblue hover:bg-primarygrey hover:text-black font-bold"
 							onClick={() => onCancel()}
 						>
 							Cancel
 						</button>
 						<button
 							type="button"
-							className="text-white px-4 py-2 rounded-3xl bg-primaryblue font-bold"
-							onClick={() => onDelete(true)}
+							className="text-white px-4 py-2 rounded-3xl border-2 border-black bg-primaryblue hover:bg-primaryRed font-bold"
+							onClick={() => onConfirm()}
 						>
 							Delete
 						</button>

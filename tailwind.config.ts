@@ -19,6 +19,8 @@ const config: Config = {
 				NueHas: ['var(--NueHas)'],
 			},
 			colors: {
+				primaryRed: '#B7261D',
+
 				primaryblue: '#263A8D',
 				primarygrey: '#F5F5F5',
 				primarywhite: 'FFFF',

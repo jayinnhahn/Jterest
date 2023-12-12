@@ -4,6 +4,8 @@ import { useState } from 'react';
 import PinEditModal from './PinEditModal';
 import Image from 'next/image';
 import PinConfirmation from './PinConfirmation';
+import { useRouter } from 'next/navigation';
+
 interface PinItemProps {
 	data: {
 		id: string;
@@ -16,19 +18,48 @@ interface PinItemProps {
 
 const PinViewCard: React.FC<PinItemProps> = ({ data }) => {
 	const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-	const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+	const [isDeleteConfirmationOpen, setIsDeleteConfirmationOpen] =
+		useState(false);
+	const router = useRouter();
 
 	const handleEditClick = () => {
 		setIsEditModalOpen(true);
 	};
 
 	const handleDeleteClick = () => {
-		setIsDeleteModalOpen(true);
+		setIsDeleteConfirmationOpen(true);
 	};
 
 	const handleCloseModals = () => {
 		setIsEditModalOpen(false);
-		setIsDeleteModalOpen(false);
+		setIsDeleteConfirmationOpen(false);
+	};
+
+	const handleCancelDelete = () => {
+		setIsDeleteConfirmationOpen(false);
+	};
+
+	const handleConfirmDelete = async () => {
+		try {
+			const response = await fetch(`/api/${data.id}`, {
+				method: 'DELETE',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			});
+
+			if (response.ok) {
+				window.alert('Pin deleted successfully');
+				console.log('Pin deleted successfully');
+				handleCloseModals();
+			} else {
+				window.alert('Failed to delete pin:');
+				console.error('Failed to delete pin:', response.statusText);
+			}
+		} catch (error) {
+			console.error('Error deleting pin:', error);
+		}
+		router.push('/');
 	};
 
 	return (
@@ -45,21 +76,21 @@ const PinViewCard: React.FC<PinItemProps> = ({ data }) => {
 				</div>
 				<div className="flex flex-col justify-between p-10">
 					<div>
-						<h1 className="text-2xl font-bold mb-4">{data.title}</h1>
-						<p className="text-gray-600">{data.description}</p>
+						<h1 className="text-[2.5rem] font-bold mb-4">{data.title}</h1>
+						<p className="text-gray-600 text-[1.25rem]">{data.description}</p>
 					</div>
 					<div className="flex justify-end space-x-4 mt-4">
 						<button
 							type="button"
 							onClick={handleEditClick}
-							className="text-white px-6 py-2 rounded-3xl border-2 border-black bg-primaryblue font-bold"
+							className="text-white px-6 py-2 rounded-3xl border-2 border-black bg-primaryblue hover:bg-primarygrey hover:text-black font-bold"
 						>
 							Edit
 						</button>
 						<button
 							type="button"
 							onClick={handleDeleteClick}
-							className="text-white px-6 py-2 rounded-3xl border-2 border-black bg-primaryblue font-bold"
+							className="text-white px-4 py-2 rounded-3xl border-2 border-black bg-primaryblue hover:bg-primaryRed  font-bold"
 						>
 							Delete
 						</button>
@@ -67,14 +98,16 @@ const PinViewCard: React.FC<PinItemProps> = ({ data }) => {
 				</div>
 			</div>
 
-			<PinEditModal isOpen={isEditModalOpen} onClose={handleCloseModals} />
+			<PinEditModal
+				isOpen={isEditModalOpen}
+				onClose={handleCloseModals}
+				id={data.id}
+				data={data}
+			/>
 			<PinConfirmation
-				isOpen={isDeleteModalOpen}
-				onCancel={handleCloseModals}
-				onDelete={() => {
-					console.log('Deleting pin:', data.id);
-					handleCloseModals();
-				}}
+				isOpen={isDeleteConfirmationOpen}
+				onCancel={handleCancelDelete}
+				onConfirm={handleConfirmDelete}
 			/>
 		</div>
 	);

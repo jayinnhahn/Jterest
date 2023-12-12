@@ -4,9 +4,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { HiSearch } from 'react-icons/hi';
+import { useState } from 'react';
+// import { useSearch } from '@/components/SearchContext';
 
 const Header = () => {
 	const pathname = usePathname();
+	const [searchQuery, setSearchQuery] = useState(' ');
 
 	return (
 		<div className="flex justify-between gap-3 md:gap-2 items-center p-6">
@@ -21,7 +24,7 @@ const Header = () => {
 			</Link>
 			<Link href="/">
 				<p
-					className={`${
+					className={`$
 						pathname === '/' ? 'bg-primaryblue text-white' : ''
 					} p-3 px-6 rounded-full text-[16px] hidden md:block`}
 				>
@@ -42,6 +45,8 @@ const Header = () => {
 				<input
 					type="text"
 					placeholder="Search"
+					value={searchQuery}
+					onChange={(e) => setSearchQuery(e.target.value)}
 					className="bg-transparent outline-none w-full text-[16px]"
 				/>
 			</div>

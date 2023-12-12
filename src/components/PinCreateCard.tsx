@@ -1,25 +1,20 @@
 'use client';
-import useSWR, { mutate } from 'swr';
 import { useState, FormEvent } from 'react';
 const PinCreateCard = () => {
 	const [title, setTitle] = useState('');
-	const [imageUrl, setImageUrl] = useState('');
+	const [image, setImageUrl] = useState('');
 	const [description, setDescription] = useState('');
-
-	const fetcher = (url: string) => fetch(url).then((res) => res.json());
-	const { data: pins } = useSWR('/api/pins', fetcher);
 
 	const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-
 		const data = {
 			title,
-			imageUrl,
+			image,
 			description,
 		};
 
 		try {
-			const response = await fetch('/api/pins', {
+			const response = await fetch('/api/pins/', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -29,15 +24,19 @@ const PinCreateCard = () => {
 
 			if (response.ok) {
 				console.log('Pin added successfully');
-				mutate('/api/pins');
+				window.alert('Pin added successfully');
+				setTitle('');
+				setImageUrl('');
+				setDescription('');
 			} else {
 				console.error('Failed to add pin:', response.statusText);
+				console.error(response.status);
+				window.alert('Pin added successfully no');
 			}
 		} catch (error) {
-			throw error;
+			console.error('Error adding pin:', error);
 		}
 	};
-
 	return (
 		<form
 			onSubmit={handleSubmit}
@@ -66,7 +65,7 @@ const PinCreateCard = () => {
 					className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
 					placeholder="Add a link of the image you are going to use"
 					id="imageUrl"
-					value={imageUrl}
+					value={image}
 					onChange={(e) => setImageUrl(e.target.value)}
 					required
 				/>
@@ -75,8 +74,7 @@ const PinCreateCard = () => {
 				<label className="block mb-2 text-[1.5rem] font-medium text-gray-900 dark:text-white">
 					Description
 				</label>
-				<input
-					type="text"
+				<textarea
 					className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 pb-20"
 					placeholder="Add a detailed description"
 					id="description"

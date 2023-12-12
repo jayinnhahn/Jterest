@@ -13,10 +13,7 @@ export async function GET(
 	});
 
 	if (!pin) {
-		return new NextResponse(JSON.stringify({ error: 'No pin with ID found' }), {
-			status: 404,
-			headers: { 'Content-Type': 'application/json' },
-		});
+		return new NextResponse('No pin with ID found', { status: 404 });
 	}
 
 	return NextResponse.json(pin);
@@ -29,21 +26,16 @@ export async function PATCH(
 	const id = params.id;
 	let json = await request.json();
 
-	try {
-		const updated_pin = await prisma.pin.update({
-			where: { id },
-			data: json,
-		});
+	const updated_user = await prisma.pin.update({
+		where: { id },
+		data: json,
+	});
 
-		if (!updated_pin) {
-			return new NextResponse('No pin with ID found', { status: 404 });
-		}
-
-		return NextResponse.json(updated_pin);
-	} catch (error: any) {
-		// Handle the case where the update fails
-		return new NextResponse(error.message, { status: 500 });
+	if (!updated_user) {
+		return new NextResponse('No pin with ID found', { status: 404 });
 	}
+
+	return NextResponse.json(updated_user);
 }
 
 export async function DELETE(
