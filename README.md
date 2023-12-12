@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Jayterest
+
+Welcome to Jayterest, a semi-blog app using the Pinterest layout as a cover. It is built with NextJS, Prisma, SQLite3, TypeScript, TailwindCSS, and Jest.
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to run the project locally:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Clone the Repository:**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    ```bash
+    git clone https://github.com/jayinnhahn/Jayterest.git
+    ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. **Install Dependencies:**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+    ```bash
+    npm install
+    ```
 
-## Learn More
+3. **Run the Application:**
 
-To learn more about Next.js, take a look at the following resources:
+    ```bash
+    npm run dev
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+4. **Run Tests:**
 
-## Deploy on Vercel
+    ```bash
+    npm run test
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Technologies Used
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **NextJS:** [link to NextJS documentation](https://nextjs.org/docs)
+- **Prisma:** [link to Prisma documentation](https://www.prisma.io/docs)
+- **SQLite3:** [link to SQLite documentation](https://www.sqlite.org/docs.html)
+- **TypeScript:** [link to TypeScript documentation](https://www.typescriptlang.org/docs)
+- **TailwindCSS:** [link to TailwindCSS documentation](https://tailwindcss.com/docs)
+- **Jest:** [link to Jest documentation](https://jestjs.io/docs)
