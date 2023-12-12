@@ -37,13 +37,17 @@ const PinCreateCard = () => {
 			console.error('Error adding pin:', error);
 		}
 	};
+
 	return (
 		<form
 			onSubmit={handleSubmit}
 			className="rounded-xl border-2 border-black p-10 w-full mx-20"
 		>
 			<div className="my-10">
-				<label className="block mb-2 text-[1.5rem] font-medium text-gray-900 dark:text-white">
+				<label
+					htmlFor="title" // Add htmlFor attribute here
+					className="block mb-2 text-[1.5rem] font-medium text-gray-900 dark:text-white"
+				>
 					Title
 				</label>
 				<input
@@ -57,7 +61,10 @@ const PinCreateCard = () => {
 				/>
 			</div>
 			<div className="my-10">
-				<label className="block mb-2 text-[1.5rem] font-medium text-gray-900 dark:text-white">
+				<label
+					htmlFor="imageUrl" // Add htmlFor attribute here
+					className="block mb-2 text-[1.5rem] font-medium text-gray-900 dark:text-white"
+				>
 					Image Url
 				</label>
 				<input
@@ -71,7 +78,10 @@ const PinCreateCard = () => {
 				/>
 			</div>
 			<div className="my-10">
-				<label className="block mb-2 text-[1.5rem] font-medium text-gray-900 dark:text-white">
+				<label
+					htmlFor="description" // Add htmlFor attribute here
+					className="block mb-2 text-[1.5rem] font-medium text-gray-900 dark:text-white"
+				>
 					Description
 				</label>
 				<textarea

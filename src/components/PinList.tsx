@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Pin } from '@prisma/client';
 import PinItem from '@/components/PinItems';
 
-const fetchPins = () =>
+export const fetchPins = () =>
 	fetch('http://localhost:3000/api/pins').then((res) => res.json());
 
 interface PinData {

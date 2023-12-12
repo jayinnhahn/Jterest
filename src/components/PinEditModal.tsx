@@ -66,7 +66,7 @@ const PinEditModal: React.FC<RightModalProps> = ({
 				console.log(id);
 			}
 		} catch (error) {
-			console.error('Error updating pin:', error);
+			throw error;
 		}
 	};
 	return (
@@ -90,7 +90,10 @@ const PinEditModal: React.FC<RightModalProps> = ({
 							</div>
 							<div className="mt-2 w-full">
 								<div className="my-10">
-									<label className="block mb-2 text-[1.5rem] font-medium text-gray-900 dark:text-white">
+									<label
+										htmlFor="title" // Add htmlFor attribute here
+										className="block mb-2 text-[1.5rem] font-medium text-gray-900 dark:text-white"
+									>
 										Title
 									</label>
 									<input
@@ -104,7 +107,10 @@ const PinEditModal: React.FC<RightModalProps> = ({
 									/>
 								</div>
 								<div className="my-10">
-									<label className="block mb-2 text-[1.5rem] font-medium text-gray-900 dark:text-white">
+									<label
+										htmlFor="image" // Add htmlFor attribute here
+										className="block mb-2 text-[1.5rem] font-medium text-gray-900 dark:text-white"
+									>
 										Image Url
 									</label>
 									<input

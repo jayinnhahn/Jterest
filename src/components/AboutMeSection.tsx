@@ -16,11 +16,12 @@ const AboutMeSection = () => {
 						What is Jayterest?
 					</h1>
 					<p>
-						Lorem ipsum, or lipsum as it is sometimes known, is dummy text used
-						in laying out print, graphic or web designs. The passage is
-						attributed to an unknown typesetter in the 15th century who is
-						thought to have scrambled parts of Ciceros De Finibus Bonorum et
-						Malorum for use in a type specimen book. It usually begins with:
+						Jayterest is a semi blog app using the Pinterest layout as cover for
+						the application it is done using Typescript, TailwindCSS, NextJS,
+						Prisma and SQLite the Data may not be really that perfect and some
+						certain features are still not included in the application such as
+						the search feature and the user authentication per app and the save
+						pin but will be added on a later data
 					</p>
 				</div>
 				<div>

@@ -24,7 +24,7 @@ const Header = () => {
 			</Link>
 			<Link href="/">
 				<p
-					className={`$
+					className={`${
 						pathname === '/' ? 'bg-primaryblue text-white' : ''
 					} p-3 px-6 rounded-full text-[16px] hidden md:block`}
 				>

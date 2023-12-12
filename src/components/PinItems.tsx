@@ -22,7 +22,7 @@ const Pinitems: React.FC<PinItemProps> = ({ data }) => {
 
 	return (
 		<Link href={`/pins/${data.id}`}>
-			<div className="relative group cursor-pointer">
+			<div data-testid="pin-item" className="relative group cursor-pointer">
 				<Image
 					src={data.image}
 					alt={data.title}
