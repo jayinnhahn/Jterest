@@ -10,27 +10,27 @@ const AboutMeSection = () => {
 
 	return (
 		<div className="flex flex-col h-fit">
-			<div className="grid grid-cols-2 items-center">
-				<div className="text-primaryblue justify-center ml-20">
-					<h1 className="text-[4rem] font-bold uppercase">
+			<div className="grid lg:grid-cols-2 grid-cols-1 items-center gap-8 p-8 lg:p-16">
+				<div className="text-primaryblue">
+					<h1 className="text-6xl font-bold uppercase mb-4">
 						What is Jayterest?
 					</h1>
-					<p>
+					<p className="text-sm lg:text-base">
 						Jayterest is a semi blog app using the Pinterest layout as cover for
-						the application it is done using Typescript, TailwindCSS, NextJS,
-						Prisma and SQLite the Data may not be really that perfect and some
-						certain features are still not included in the application such as
-						the search feature and the user authentication per app and the save
-						pin but will be added on a later data
+						the application. It is done using Typescript, TailwindCSS, NextJS,
+						Prisma, and SQLite. The data may not be perfect, and some certain
+						features are still not included in the application, such as the
+						search feature, user authentication, and save pin, but will be added
+						at a later date.
 					</p>
 				</div>
-				<div>
+				<div className="flex justify-center">
 					<Image
 						src="/aboutus.jpg"
 						alt="about us picture"
 						className="object-cover w-full h-full"
-						width={1000}
-						height={1100}
+						width={500}
+						height={550}
 					/>
 				</div>
 			</div>

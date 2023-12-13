@@ -1,7 +1,6 @@
 'use client';
 import React, { useEffect, useState, useCallback } from 'react';
 import PinViewCard from '@/components/PinViewCard';
-import PinList from '@/components/PinList';
 import { Pin } from '@prisma/client';
 
 const Page = ({ params }: { params: { id: string } }) => {
@@ -30,15 +29,7 @@ const Page = ({ params }: { params: { id: string } }) => {
 	}, [fetchPin]);
 
 	return (
-		<div className="flex flex-col">
-			<div className="h-screen justify-center">
-				{pin && <PinViewCard data={pin} />}
-			</div>
-			<h1 className="font-bold text-[4rem] text-center py-5">
-				What &lsquo;s More ?
-			</h1>
-			<PinList />
-		</div>
+		<div className="flex flex-col">{pin && <PinViewCard data={pin} />}</div>
 	);
 };
 

@@ -28,11 +28,11 @@ export default function PinList() {
 		};
 
 		fetchData();
-	}, []); // Empty dependency array to run the effect only once on mount
+	}, []);
 
 	return (
 		<section className="mx-10 max-w-full">
-			<div className="columns-7 gap-3 mx-auto space-y-3">
+			<div className="lg:columns-7 md:columns-5 sm:columns-3 columns-2 gap-3 mx-auto space-y-3">
 				{pins.map((pin: PinData) => (
 					<PinItem key={pin.id} data={pin} />
 				))}

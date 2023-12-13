@@ -1,9 +1,12 @@
 'use client';
 import { useState, FormEvent } from 'react';
+import { useRouter } from 'next/navigation';
+
 const PinCreateCard = () => {
 	const [title, setTitle] = useState('');
 	const [image, setImageUrl] = useState('');
 	const [description, setDescription] = useState('');
+	const router = useRouter();
 
 	const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
@@ -28,6 +31,7 @@ const PinCreateCard = () => {
 				setTitle('');
 				setImageUrl('');
 				setDescription('');
+				router.push('/');
 			} else {
 				console.error('Failed to add pin:', response.statusText);
 				console.error(response.status);

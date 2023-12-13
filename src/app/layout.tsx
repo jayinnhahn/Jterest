@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import localFont from '@next/font/local';
 import Header from '@/components/Header';
-// import Head from 'next/head';
+import Head from 'next/head';
 
 const NueHas = localFont({
 	src: [
@@ -33,11 +33,11 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			{/* <Head>
+			<Head>
 				<meta charSet="UTF-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 				<link rel="icon" href="/favicon.ico" />
-			</Head> */}
+			</Head>
 			<body className={`${NueHas.variable} font-sans`}>
 				<Header />
 				{children}

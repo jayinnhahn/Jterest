@@ -26,7 +26,7 @@ const Header = () => {
 				<p
 					className={`${
 						pathname === '/' ? 'bg-primaryblue text-white' : ''
-					} p-3 px-6 rounded-full text-[16px] hidden md:block`}
+					} p-3 px-6 rounded-full  text-[1rem]  md:block`}
 				>
 					Home
 				</p>
@@ -35,7 +35,7 @@ const Header = () => {
 				<p
 					className={`${
 						pathname === '/create' ? 'bg-primaryblue text-white' : ''
-					} p-3 px-6 rounded-full text-[16px] hidden md:block`}
+					} p-3 px-6 rounded-full text-[1rem] md:block`}
 				>
 					Create
 				</p>
